@@ -1,4 +1,4 @@
-import 'package:retrieval/src/key_value_trie.dart';
+import 'package:retrieval/key_value_trie.dart';
 import 'package:retrieval/trie.dart';
 
 void main() {
@@ -22,14 +22,14 @@ void main() {
   print(trie.find('crikey')); // ['crikey']
   print(trie.find('ghost')); // []
 
-  // Use a key-value trie to associate each word with a value (of type String).
-  final keyValueTrie = KeyValueTrie<String>();
+  // Use a key-value trie to associate each word with a value.
+  final keyValueTrie = KeyValueTrie<String>(); // Values of type String.
 
   keyValueTrie.insert('trophy', '🏆');
   keyValueTrie.insert('train', '🚆');
 
   // When finding matching words by prefix, the associated value is returned.
-  print(keyValueTrie.find('tr')); // ['🏆', '🚆']
+  print(keyValueTrie.find('tr')); // ['🚆', '🏆']
   print(keyValueTrie.find('trophy')); // ['🏆']
   print(keyValueTrie.find('trie')); // []
 }

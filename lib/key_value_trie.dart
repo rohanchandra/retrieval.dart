@@ -1,4 +1,4 @@
 /// A trie data structure.
 library retrieval;
 
-export 'src/trie.dart';
+export 'src/key_value_trie.dart';
