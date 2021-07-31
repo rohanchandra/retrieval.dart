@@ -7,7 +7,7 @@ void main() {
       final words = <String>['apple', 'trie', 'try', 'tried', 'appellate'];
       final trie = Trie();
 
-      trie.insertAll(words);
+      words.forEach(trie.insert);
 
       for (final word in words) {
         expect(trie.has(word), isTrue);

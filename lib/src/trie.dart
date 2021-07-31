@@ -1,47 +1,29 @@
 import 'package:characters/characters.dart';
 
 import 'trie_node.dart';
+import 'utils.dart';
 
 class Trie {
-  final TrieNode _root = TrieNode(null);
+  final _root = TrieNode<void>(key: null, value: null);
 
   /// Inserts the `word` into the trie.
   void insert(String word) {
     var currentNode = _root;
 
     for (final character in word.characters) {
-      currentNode = currentNode.putChildIfAbsent(character);
+      // Add a child with a key and no value.
+      //
+      // The nodes in this trie never have a value as only the character
+      // is stored.
+      currentNode = currentNode.putChildIfAbsent(character, value: null);
     }
 
     currentNode.isEndOfWord = true;
   }
 
-  /// Adds each word in `words` into the trie.
-  void insertAll(Iterable<String> words) {
-    words.forEach(insert);
-  }
-
   /// Whether the trie contains the `word`.
   bool has(String word) {
-    final endOfWordNode = _find(word);
-    return endOfWordNode != null && endOfWordNode.isEndOfWord;
-  }
-
-  /// Find a word in the trie.
-  ///
-  /// Returns the [TrieNode] corresponding to the last character of the `word`,
-  /// or `null` when the `word` does not exist in the trie.
-  TrieNode? _find(String word) {
-    TrieNode? currentNode = _root;
-
-    for (final character in word.characters) {
-      currentNode = currentNode?.getChild(character);
-      if (currentNode == null) {
-        return null;
-      }
-    }
-
-    return currentNode;
+    return findPrefix(word, fromNode: _root)?.isEndOfWord ?? false;
   }
 
   /// Finds all complete words in the trie matching the `prefix`.
@@ -50,7 +32,7 @@ class Trie {
   /// returned.
   List<String> find(String prefix) {
     // Find the node of associated with the last character of the prefix.
-    final lastCharacterNode = _find(prefix);
+    final lastCharacterNode = findPrefix(prefix, fromNode: _root);
 
     // The prefix does not exist in the tre.
     if (lastCharacterNode == null) {
@@ -75,7 +57,7 @@ class Trie {
         stack.add(
           _PartialMatch(
             node: child,
-            partialWord: "${partialMatch.partialWord}${child.character}",
+            partialWord: "${partialMatch.partialWord}${child.key}",
           ),
         );
       }
