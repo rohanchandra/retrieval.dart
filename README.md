@@ -59,7 +59,7 @@ Add a word to the `trie` with the `insert` method:
 trie.insert('crikey');
 ```
 
-Check if the word is in the `trie` with the `has` method:
+Check if a word is in the `trie` with the `has` method:
 
 ```dart
 trie.has('crikey');
@@ -116,7 +116,7 @@ Add a word and its associated value to the `keyValueTrie` with the `insert` meth
 keyValueTrie.insert('trophy', '🏆');
 ```
 
-Check if the word is in the `keyValueTrie` with the `has` method:
+Check if a word is in the `keyValueTrie` with the `has` method:
 
 ```dart
 trie.has('trophy');
@@ -136,9 +136,10 @@ trie.find('tr');
 
 A trie is a search tree data structure. In this implementation, each character is a node in the trie, for example, after inserting the word `DART`, nodes of `D`, `A`, `R` and `T` are created.
 
-In the trie, words with the same prefix are in the same subtree. For example, since `DART` and `DASH` both have a prefix of `DA`, they can be found by searching from the `A` node that's below the `D` node. This property makes finding words in a trie, by prefix, easy!
+In the trie, words with the same prefix are in the same subtree. For example, since `DART` and `DASH` both have a prefix of `DA`, they can be found by searching from the `A` node (that's below the `D` node). This property makes finding words in a trie, by prefix, easy!
 
 ## Links
 
 - [GitHub](https://github.com/rohanchandra/retrieval.dart)
+- [Dart Package](https://pub.dev/packages/retrieval)
 - [Issue Tracker](https://github.com/rohanchandra/retrieval.dart/issues)
