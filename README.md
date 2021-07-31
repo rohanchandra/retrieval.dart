@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/rohanchandra/retrieval.dart/raw/master/docs/logo.png" alt="logo" width="400px"/>
+  <img src="https://github.com/rohanchandra/retrieval.dart/raw/master/assets/logo.png" alt="logo" width="400px"/>
 </p>
 
 A trie data structure Dart implementation — useful for autocomplete.
@@ -132,7 +132,7 @@ trie.find('tr');
 
 > Trie with words of `DART`, `DASH`, `DASHI`,`DARE` and `APP`.
 >
-> <img src="https://github.com/rohanchandra/retrieval.dart/raw/master/docs/trie.png" alt="trie" width="400px"/>
+> <img src="https://github.com/rohanchandra/retrieval.dart/raw/master/assets/trie.png" alt="trie" width="400px"/>
 
 A trie is a search tree data structure. In this implementation, each character is a node in the trie, for example, after inserting the word `DART`, nodes of `D`, `A`, `R` and `T` are created.
 
