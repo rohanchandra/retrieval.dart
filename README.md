@@ -122,7 +122,7 @@ Check if a word is in the `keyValueTrie` with the `has` method:
 trie.has('trophy');
 ```
 
-Find all values associated with a word's given prefix with the `keyValueTrie` method:
+Find all values associated with a word's given prefix with the `find` method:
 
 ```dart
 trie.find('tr');
